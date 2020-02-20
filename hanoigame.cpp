@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void mover(int discos, char origem, char destino, char auxiliar){
     if(discos > 1)
@@ -9,8 +10,16 @@ void mover(int discos, char origem, char destino, char auxiliar){
 }
 
 
-int main(void){
-    int discos = 3;
+int main(int argc, char** argv){
+    int discos = 0;
+
+    if(argc<2){
+        printf("Favor informar o numero de discos!!\n");
+        exit(-1);
+    }
+
+    discos = atoi(argv[1]);
+    
     printf("Numero de discos %d \n", discos);
     mover(discos, 'A', 'C','B');
 }
